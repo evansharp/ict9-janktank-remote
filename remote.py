@@ -112,7 +112,6 @@ try:
         elif char == ord('q'):
             q()
 
-
         # 'X' for stop
         elif char == ord('x'):
             x()
