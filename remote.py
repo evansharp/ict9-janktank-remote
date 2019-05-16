@@ -39,21 +39,21 @@ def s():
     GPIO.output(15,True)
     print "s"
 
-#Left function
+#Right function
 def a():
     GPIO.output(7,True)
     GPIO.output(11,False)
     GPIO.output(13,False)
     GPIO.output(15,True)
-    print "a"
+    print "d"
 
-#Right function
+#Left function
 def d():
     GPIO.output(7,False)
     GPIO.output(11,True)
     GPIO.output(13,True)
     GPIO.output(15,False)
-    print "d"
+    print "a"
 
 #Stop function
 def x():
@@ -63,6 +63,7 @@ def x():
     GPIO.output(15,False)
     print "x"
 
+#Right curve function
 def e():
     while screen.getch() == ord('e'):
         d()
@@ -71,6 +72,7 @@ def e():
         time.sleep(1.7)
         print 'e'
 
+#Left curve function
 def q():
     while screen.getch() == ord('q'):
         a()
@@ -79,6 +81,7 @@ def q():
         time.sleep(1.7)
         print 'q'
 
+#Main loop
 try:
     while True:
         #Get key pressed
