@@ -40,7 +40,7 @@ def s():
     print "s"
 
 #Right function
-def a():
+def d():
     GPIO.output(7,True)
     GPIO.output(11,False)
     GPIO.output(13,False)
@@ -48,7 +48,7 @@ def a():
     print "d"
 
 #Left function
-def d():
+def a():
     GPIO.output(7,False)
     GPIO.output(11,True)
     GPIO.output(13,True)
