@@ -5,10 +5,18 @@ import time
 
 #set GPIO numbering mode and define output pins
 GPIO.setmode(GPIO.BOARD)
+
+#for moving
 GPIO.setup(7,GPIO.OUT)
 GPIO.setup(11,GPIO.OUT)
 GPIO.setup(13,GPIO.OUT)
 GPIO.setup(15,GPIO.OUT)
+
+#for claw
+GPIO.setup(32,GPIO.OUT)
+GPIO.setup(36,GPIO.OUT)
+GPIO.setup(38,GPIO.OUT)
+GPIO.setup(40,GPIO.OUT)
 
 # Get the curses window, turn off echoing of keyboard to screen, turn on
 # instant (no waiting) key response, and use special values for cursor keys
@@ -74,12 +82,37 @@ def e():
 
 #Left curve function
 def q():
-    while screen.getch() == ord('q'):
-        a()
-        time.sleep(.15)
-        w()
-        time.sleep(1.7)
-        print 'q'
+    a()
+    time.sleep(.15)
+    w()
+    time.sleep(1.7)
+    print 'q'
+
+#close grippies function
+def i():
+    GPIO.output(32,True)
+    GPIO.output(36,False)
+    GPIO.output(38,True)
+    GPIO.output(40,False)
+    time.sleep(.15)
+    GPIO.output(32,False)
+    GPIO.output(36,False)
+    GPIO.output(38,False)
+    GPIO.output(40,False)
+    print 'i'
+
+#open grippies function
+def u():
+    GPIO.output(32,False)
+    GPIO.output(36,True)
+    GPIO.output(38,False)
+    GPIO.output(40,True)
+    time.sleep(.15)
+    GPIO.output(32,False)
+    GPIO.output(36,False)
+    GPIO.output(38,False)
+    GPIO.output(40,False)
+    print 'u'
 
 #Main loop
 try:
@@ -90,6 +123,14 @@ try:
         # 'N' for exit
         if char == ord('n'):
             break
+
+        # 'I' for close claws
+        elif char == ord('i'):
+            i()
+
+        # 'U' for open claws
+        elif char == ord('u'):
+            u()
 
         # 'W' for forward
         elif char == ord('w'):
