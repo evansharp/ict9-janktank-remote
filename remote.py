@@ -1,18 +1,18 @@
-# import curses and GPIO
+# i=Import curses and GPIO
 import curses
 import RPi.GPIO as GPIO
 import time
 
-#set GPIO numbering mode and define output pins
+#Set GPIO numbering mode and define output pins
 GPIO.setmode(GPIO.BOARD)
 
-#for moving
+#For moving
 GPIO.setup(7,GPIO.OUT)
 GPIO.setup(11,GPIO.OUT)
 GPIO.setup(13,GPIO.OUT)
 GPIO.setup(15,GPIO.OUT)
 
-#for claw
+#For claw
 GPIO.setup(32,GPIO.OUT)
 GPIO.setup(36,GPIO.OUT)
 GPIO.setup(38,GPIO.OUT)
